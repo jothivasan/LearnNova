@@ -111,10 +111,10 @@ export function Planner() {
                   <div className="shrink-0 w-full lg:w-40 mt-3 lg:mt-0">
                     {isToday ? (
                       <Link 
-                        to="/theory"
+                        to="/session"
                         className="flex items-center justify-between lg:justify-center gap-2 px-4 py-2.5 bg-accent text-dark font-display font-bold text-[10px] tracking-widest uppercase hover:bg-white transition-all brutal-shadow-sm w-full"
                       >
-                        Execute Phase
+                        Start Practice
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                     ) : (

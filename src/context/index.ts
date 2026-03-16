@@ -1,2 +1,1 @@
-export {};
-// React Context providers
+export { AuthProvider, useAuth } from './AuthContext';

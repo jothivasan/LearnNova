@@ -47,10 +47,10 @@ export function Practice() {
           </p>
         </div>
         <Link 
-          to="/theory" 
+          to="/planner" 
           className="inline-flex items-center gap-4 px-10 py-5 bg-surface border-2 border-border text-text font-display font-bold text-lg tracking-widest uppercase hover:bg-danger hover:text-dark hover:border-danger transition-all brutal-shadow"
         >
-          Return to Theory
+          Return to Planner
           <ArrowRight className="w-6 h-6" />
         </Link>
       </div>

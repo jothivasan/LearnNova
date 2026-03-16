@@ -106,11 +106,11 @@ export function Revision() {
                 <p className="font-sans text-[10px] sm:text-xs text-text-muted leading-relaxed max-w-2xl border-l-2 border-border pl-3">Accuracy below threshold in recent simulations. Recommended action: Review theory and re-simulate.</p>
               </div>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 mt-3 md:mt-0">
-                <Link to="/theory" className="px-5 py-2.5 bg-dark border border-border text-text font-display font-bold text-[8px] sm:text-[10px] tracking-widest uppercase hover:border-text hover:text-dark hover:bg-text transition-all text-center brutal-shadow-sm">
-                  Review Theory
+                <Link to="/planner" className="px-5 py-2.5 bg-dark border border-border text-text font-display font-bold text-[8px] sm:text-[10px] tracking-widest uppercase hover:border-text hover:text-dark hover:bg-text transition-all text-center brutal-shadow-sm">
+                  Review Plan
                 </Link>
                 <Link to="/practice" className="px-5 py-2.5 bg-accent text-dark font-display font-black text-[8px] sm:text-[10px] tracking-widest uppercase hover:bg-dark hover:text-accent border border-transparent hover:border-accent transition-all flex items-center justify-center gap-2 brutal-shadow-sm">
-                  Init Simulation
+                  Start Practice
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

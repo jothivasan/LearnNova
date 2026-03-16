@@ -160,9 +160,9 @@ export function Dashboard() {
                 </div>
 
                 <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <Link to="/theory" className="flex flex-col items-center justify-center gap-4 p-6 glass-panel border border-border hover:border-accent hover:bg-dark transition-all group brutal-shadow-sm">
+                  <Link to="/session" className="flex flex-col items-center justify-center gap-4 p-6 glass-panel border border-border hover:border-accent hover:bg-dark transition-all group brutal-shadow-sm">
                     <span className="font-display text-sm tracking-widest text-text-muted group-hover:text-accent">01</span>
-                    <span className="font-display text-sm md:text-base tracking-wide uppercase mt-1">Theory</span>
+                    <span className="font-display text-sm md:text-base tracking-wide uppercase mt-1">Session</span>
                   </Link>
                   <Link to="/practice" className={`flex flex-col items-center justify-center gap-3 p-4 md:p-5 glass-panel border brutal-shadow-sm transition-all group ${!todayPlan?.practiceUnlocked ? 'border-border opacity-50 cursor-not-allowed bg-dark' : 'border-border hover:border-accent hover:bg-dark'}`}>
                     <span className="font-display text-xs tracking-widest text-text-muted group-hover:text-accent">02</span>
