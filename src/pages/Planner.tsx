@@ -14,29 +14,29 @@ export function Planner() {
     >
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-4">
         <div className="relative">
-          <p className="font-display text-[10px] font-bold text-accent uppercase tracking-widest mb-2 bg-dark inline-block border border-accent px-2.5 py-1">
+          <p className="font-sans font-medium text-accent bg-accent/10 inline-block rounded-full px-3 py-1 text-sm mb-3">
             Curriculum Timeline
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-text leading-none uppercase tracking-tight">
-            Study<br/><span className="text-transparent text-stroke-accent">Planner</span>
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-text leading-none tracking-tight">
+            Study<br/><span className="text-accent">Planner</span>
           </h1>
         </div>
-        <Link to="/create-plan" className="flex items-center gap-2 px-5 py-2.5 bg-surface border border-border text-text font-display font-medium text-[10px] tracking-widest uppercase hover:text-dark hover:bg-accent transition-all brutal-shadow-sm">
-          <PlusSquare className="w-4 h-4" />
+        <Link to="/create-plan" className="flex items-center gap-2 px-5 py-2.5 bg-surface-light border border-border rounded-xl text-text font-sans font-medium text-sm hover:bg-accent hover:border-accent hover:text-white transition-all shadow-sm">
+          <PlusSquare className="w-5 h-5" />
           Initialize Plan
         </Link>
       </div>
 
-      <div className="glass-panel overflow-hidden border border-border bg-surface brutal-shadow-sm">
+      <div className="bg-surface rounded-2xl shadow-xl overflow-hidden border border-border">
         {plannerDays.length === 0 ? (
-          <div className="flex flex-col items-center justify-center h-48 space-y-4 p-5 relative border border-dashed border-border m-3">
-            <div className="w-12 h-12 bg-dark flex items-center justify-center border border-border mt-2 relative z-10 transition-transform">
-              <Zap className="w-6 h-6 text-accent animate-pulse fill-current" />
+          <div className="flex flex-col items-center justify-center h-48 space-y-4 p-5 relative border border-dashed border-border/50 rounded-xl m-4 bg-surface-light/50">
+            <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center border border-accent/20 mt-2 relative z-10">
+              <Zap className="w-6 h-6 text-accent animate-pulse" />
             </div>
-            <p className="text-text font-serif text-sm italic text-center max-w-sm relative z-10">
+            <p className="text-text font-sans text-sm text-center max-w-sm relative z-10 text-text-muted">
               System requires a learning directive to proceed. Initialize a new plan to begin tracking.
             </p>
-            <Link to="/create-plan" className="px-5 py-2.5 bg-accent text-dark font-display font-bold text-[10px] tracking-widest uppercase brutal-shadow-sm hover:bg-white transition-all relative z-10">
+            <Link to="/create-plan" className="px-6 py-2.5 bg-accent text-white font-medium text-sm rounded-xl hover:bg-accent/90 transition-all relative z-10 shadow-md shadow-accent/25">
               Chart Course
             </Link>
           </div>
@@ -64,45 +64,45 @@ export function Planner() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className={`p-5 md:p-6 flex flex-col lg:flex-row gap-6 items-start lg:items-center transition-all duration-300 relative group ${isToday ? 'bg-dark border-y border-accent' : 'hover:bg-dark'}`}
+                  className={`p-5 md:p-6 flex flex-col lg:flex-row gap-6 items-start lg:items-center transition-all duration-300 relative group hover:bg-surface-light/50 ${isToday ? 'bg-surface-light/80' : ''}`}
                 >
                   {isToday && (
-                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-accent shadow-[2px_0_0_rgba(204,255,0,0.5)]"></div>
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent rounded-r-full"></div>
                   )}
                   
-                  <div className={`shrink-0 w-16 h-16 border flex flex-col items-center justify-center transition-all duration-500 ${isToday ? 'border-accent bg-accent text-dark shadow-[3px_3px_0_var(--color-border)]' : 'border-border bg-surface group-hover:border-accent'}`}>
-                    <span className="font-display text-[8px] font-bold uppercase tracking-widest block mb-0.5">Phase</span>
-                    <span className={`font-display text-xl font-bold leading-none ${isToday ? 'text-dark' : 'text-text'}`}>
+                  <div className={`shrink-0 w-16 h-16 rounded-2xl flex flex-col items-center justify-center transition-all duration-500 shadow-sm ${isToday ? 'bg-accent text-white' : 'border border-border bg-surface group-hover:border-accent/50'}`}>
+                    <span className="font-sans text-[10px] font-medium block mb-0.5 opacity-80">Phase</span>
+                    <span className={`font-display text-xl font-bold leading-none ${isToday ? 'text-white' : 'text-text'}`}>
                       {String(day.dayNumber).padStart(2, '0')}
                     </span>
                   </div>
                   
                   <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <h3 className={`font-display text-lg md:text-xl font-bold truncate uppercase tracking-tight ${isPast ? 'text-text-muted' : 'text-text group-hover:text-accent transition-colors'}`}>
+                    <div className="flex flex-wrap items-center gap-3 mb-2">
+                      <h3 className={`font-display text-lg md:text-xl font-semibold truncate ${isPast ? 'text-text-muted' : 'text-text group-hover:text-accent transition-colors'}`}>
                         {topic?.name}
                       </h3>
                       {isToday && (
-                        <span className="px-2 py-1 bg-accent border border-dark text-dark font-display text-[8px] font-bold tracking-widest uppercase">
+                        <span className="px-2.5 py-1 rounded-md bg-accent/20 text-accent font-sans text-xs font-semibold">
                           Active Node
                         </span>
                       )}
-                      <span className={`inline-flex items-center gap-1.5 px-2 py-1 font-display text-[8px] font-bold tracking-widest uppercase border ${statusColor}`}>
+                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md font-sans text-xs font-semibold border ${statusColor}`}>
                         {statusIcon}
                         {day.completionStatus}
                       </span>
                     </div>
                     
-                    <div className="flex flex-wrap items-center gap-2 text-[10px] tracking-wide">
-                      <span className="flex items-center gap-1.5 bg-dark px-2.5 py-1 border border-border font-display text-[8px] uppercase tracking-widest text-text">
-                        <Clock className="w-3 h-3 text-accent" />
+                    <div className="flex flex-wrap items-center gap-2 text-xs text-text-muted">
+                      <span className="flex items-center gap-1.5 bg-surface rounded-lg px-2.5 py-1.5 border border-border/50 font-sans shadow-sm">
+                        <Clock className="w-3.5 h-3.5 text-accent" />
                         Est {topic?.estimatedTime}m
                       </span>
-                      <span className="flex items-center gap-1.5 bg-dark px-2.5 py-1 border border-border font-display text-[8px] uppercase tracking-widest text-text">
-                        <CalendarIcon className="w-3 h-3 text-accent" />
+                      <span className="flex items-center gap-1.5 bg-surface rounded-lg px-2.5 py-1.5 border border-border/50 font-sans shadow-sm">
+                        <CalendarIcon className="w-3.5 h-3.5 text-accent" />
                         {day.plannedTimeline}
                       </span>
-                      <span className="px-2.5 py-1 border border-border bg-dark font-display text-[8px] uppercase tracking-widest text-text">
+                      <span className="px-2.5 py-1.5 rounded-lg border border-border/50 bg-surface font-sans shadow-sm">
                         Lvl {topic?.difficulty}
                       </span>
                     </div>
@@ -112,7 +112,7 @@ export function Planner() {
                     {isToday ? (
                       <Link 
                         to="/session"
-                        className="flex items-center justify-between lg:justify-center gap-2 px-4 py-2.5 bg-accent text-dark font-display font-bold text-[10px] tracking-widest uppercase hover:bg-white transition-all brutal-shadow-sm w-full"
+                        className="flex items-center justify-between lg:justify-center gap-2 px-4 py-3 bg-accent text-white font-medium text-sm rounded-xl hover:bg-accent/90 transition-all shadow-md shadow-accent/20 w-full"
                       >
                         Start Practice
                         <ArrowRight className="w-4 h-4" />
@@ -120,10 +120,10 @@ export function Planner() {
                     ) : (
                       <button 
                         disabled={isPast}
-                        className={`flex items-center justify-between lg:justify-center gap-2 px-4 py-2.5 border font-display font-bold text-[10px] tracking-widest uppercase transition-all w-full ${
+                        className={`flex items-center justify-between lg:justify-center gap-2 px-4 py-3 border font-medium text-sm rounded-xl transition-all w-full shadow-sm ${
                           isPast 
-                            ? 'border-border text-text-muted cursor-not-allowed bg-dark' 
-                            : 'border-border text-text hover:border-accent hover:bg-accent hover:text-dark bg-surface shadow-[2px_2px_0_var(--color-border)] hover:shadow-[2px_2px_0_var(--color-dark)]'
+                            ? 'border-border/50 text-text-muted cursor-not-allowed bg-surface-light/50' 
+                            : 'border-border text-text hover:border-accent hover:bg-accent/10 hover:text-accent bg-surface'
                         }`}
                       >
                         {isPast ? (

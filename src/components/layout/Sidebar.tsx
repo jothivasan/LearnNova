@@ -42,17 +42,19 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
 
   return (
     <aside className="w-64 bg-dark md:bg-dark border-r border-border flex flex-col shrink-0 relative z-20 h-full">
-      <div className="h-16 flex items-center px-6 border-b border-border bg-accent text-dark">
+      <div className="h-16 flex items-center px-6 border-b border-border bg-surface text-text">
         <div className="flex items-center gap-2">
-          <Zap className="w-6 h-6 fill-current" />
+          <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center text-accent">
+            <Zap className="w-5 h-5" />
+          </div>
           <div className="flex flex-col">
-            <span className="font-display text-xl tracking-tighter leading-none">LEARNNOVA</span>
+            <span className="font-display font-bold text-lg leading-none tracking-tight">LearnNova</span>
           </div>
         </div>
       </div>
       
-      <nav className="flex-1 py-6 px-4 space-y-1.5 overflow-y-auto">
-        <span className="text-[10px] tracking-[0.2em] font-display text-text-muted uppercase mb-3 block px-2">Menu</span>
+      <nav className="flex-1 py-6 px-4 space-y-1 overflow-y-auto">
+        <span className="text-[11px] font-semibold text-text-muted/70 uppercase tracking-widest mb-3 block px-3">Menu</span>
         {navItems.filter(item => item.path !== '/admin' || useAuth().isAdmin).map((item) => {
           const isActive = location.pathname === item.path || 
                           (item.path !== "/" && location.pathname.startsWith(item.path));
@@ -64,21 +66,20 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
               className="block relative group"
             >
               {isActive && (
-                <motion.div 
-                  layoutId="activeNav"
-                  className="absolute inset-0 bg-surface border border-border"
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
+                  <motion.div 
+                    layoutId="activeNav"
+                    className="absolute inset-0 bg-accent/10 border border-accent/20 rounded-xl"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
               )}
               <div className={cn(
-                "relative flex items-center gap-4 px-4 py-2.5 transition-all duration-300 z-10",
-                isActive ? "text-accent" : "text-text-muted group-hover:text-text group-hover:-translate-y-0.5 group-hover:bg-surface border border-transparent group-hover:border-border"
+                "relative flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 z-10",
+                isActive 
+                  ? "text-accent font-medium" 
+                  : "text-text-muted hover:text-text hover:bg-surface-light font-medium"
               )}>
-                <item.icon className="w-4 h-4" strokeWidth={isActive ? 2.5 : 2} />
-                <span className="text-xs font-display tracking-widest uppercase mt-0.5">{item.label}</span>
-                {isActive && (
-                  <span className="absolute right-4 w-1.5 h-1.5 bg-accent" />
-                )}
+                <item.icon className={cn("w-4 h-4", isActive ? "text-accent" : "text-text-muted/70")} strokeWidth={isActive ? 2.5 : 2} />
+                <span className="text-[14px]">{item.label}</span>
               </div>
             </Link>
           );
@@ -88,10 +89,10 @@ export function Sidebar({ onClose }: { onClose?: () => void }) {
       <div className="p-4 border-t border-border bg-surface">
         <button 
           onClick={handleLogout}
-          className="flex items-center gap-3 px-4 py-2.5 w-full text-xs font-display tracking-widest uppercase text-text-muted hover:text-dark hover:bg-accent border border-border hover:border-accent transition-all duration-300 group"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 w-full text-[13px] font-medium text-text-muted hover:text-text hover:bg-surface-light rounded-xl border border-transparent hover:border-border transition-all duration-200 group"
         >
-          <LogOut className="w-4 h-4 group-hover:-translate-x-1 transition-transform" strokeWidth={2} />
-          <span className="mt-0.5">Log Out</span>
+          <LogOut className="w-4 h-4 text-text-muted/70 group-hover:text-danger transition-colors" strokeWidth={2} />
+          <span>Log Out</span>
         </button>
       </div>
     </aside>

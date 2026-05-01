@@ -61,12 +61,12 @@ export function Login() {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-center mb-8"
         >
-          <div className="inline-flex items-center gap-2.5 bg-accent text-dark px-5 py-3 mb-6">
-            <Zap className="w-6 h-6 fill-current" />
-            <span className="font-display text-2xl tracking-tighter leading-none">LEARNNOVA</span>
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-accent/10 text-accent mb-6 shadow-sm">
+            <Zap className="w-8 h-8" />
           </div>
-          <p className="text-text-muted font-display text-[10px] tracking-widest uppercase">
-            Login to your account
+          <h2 className="font-display text-3xl font-bold tracking-tight text-text mb-2">LearnNova</h2>
+          <p className="text-text-muted font-sans text-sm">
+            Welcome back, please sign in to your account.
           </p>
         </motion.div>
 
@@ -75,14 +75,14 @@ export function Login() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="border border-border bg-surface p-6 sm:p-8 brutal-shadow"
+          className="border border-border bg-surface p-8 rounded-2xl shadow-xl"
         >
-          <div className="border-b border-border pb-4 mb-6">
-            <h1 className="font-display text-xl sm:text-2xl font-black text-text uppercase tracking-tight">
-              Sign <span className="text-accent">In</span>
+          <div className="pb-6 mb-6">
+            <h1 className="font-display text-2xl font-bold text-text">
+              Sign In
             </h1>
-            <p className="font-display text-[10px] tracking-widest text-text-muted uppercase mt-1">
-              Authenticate to proceed
+            <p className="font-sans text-sm text-text-muted mt-1">
+              Enter your details to proceed
             </p>
           </div>
 
@@ -101,22 +101,22 @@ export function Login() {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email Field */}
             <div>
-              <label className="font-display text-[10px] tracking-widest text-text-muted uppercase block mb-2">
+              <label className="font-sans text-sm font-medium text-text-muted block mb-2">
                 Email Address
               </label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="your.email@example.com"
+                placeholder="you@example.com"
                 required
-                className="w-full px-4 py-3 bg-dark border border-border text-text text-sm font-display tracking-wide focus:outline-none focus:border-accent transition-colors placeholder:text-text-muted/50"
+                className="w-full px-4 py-3 bg-surface-light border border-border rounded-xl text-text text-sm font-sans focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all placeholder:text-text-muted/50"
               />
             </div>
 
             {/* Password Field */}
             <div>
-              <label className="font-display text-[10px] tracking-widest text-text-muted uppercase block mb-2">
+              <label className="font-sans text-sm font-medium text-text-muted block mb-2">
                 Password
               </label>
               <div className="relative">
@@ -126,14 +126,14 @@ export function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full px-4 py-3 pr-12 bg-dark border border-border text-text text-sm font-display tracking-wide focus:outline-none focus:border-accent transition-colors placeholder:text-text-muted/50"
+                  className="w-full px-4 py-3 pr-12 bg-surface-light border border-border rounded-xl text-text text-sm font-sans focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all placeholder:text-text-muted/50"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-accent transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-text transition-colors"
                 >
-                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
             </div>
@@ -142,16 +142,16 @@ export function Login() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-accent text-dark font-display font-black text-xs tracking-widest uppercase border border-transparent hover:bg-dark hover:text-accent hover:border-accent transition-all disabled:opacity-60 disabled:cursor-not-allowed brutal-shadow-sm"
+              className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-accent text-white font-medium text-sm rounded-xl shadow-lg shadow-accent/25 hover:bg-accent/90 focus:ring-4 focus:ring-accent/20 transition-all disabled:opacity-70 disabled:cursor-not-allowed mt-2"
             >
               {isLoading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-dark/30 border-t-dark rounded-full animate-spin"></div>
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                   Logging in...
                 </>
               ) : (
                 <>
-                  <LogIn className="w-4 h-4" />
+                  <LogIn className="w-5 h-5" />
                   Sign In
                 </>
               )}
@@ -164,30 +164,18 @@ export function Login() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          className="mt-4 border border-border bg-dark p-4 sm:p-5"
+          className="mt-6 border border-border bg-surface-light/50 p-5 rounded-xl text-center flex items-center justify-between"
         >
-          <div className="flex items-start gap-3">
-            <Info className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-            <div className="flex-1">
-              <p className="font-display text-[10px] tracking-widest text-accent uppercase mb-3">
-                Demo Credentials Available
-              </p>
-              <div className="space-y-1.5 mb-4">
-                <p className="text-xs text-text-muted font-display tracking-wide">
-                  Email: <span className="text-text font-mono">demo@learnnova.com</span>
-                </p>
-                <p className="text-xs text-text-muted font-display tracking-wide">
-                  Password: <span className="text-text font-mono">demo1234</span>
-                </p>
-              </div>
-              <button
-                onClick={fillDemoCredentials}
-                className="px-4 py-2 bg-surface border border-border text-text font-display font-bold text-[10px] tracking-widest uppercase hover:border-accent hover:text-accent transition-all"
-              >
-                Auto-Fill Demo
-              </button>
-            </div>
+          <div className="text-left">
+            <p className="font-sans font-medium text-sm text-text">Demo Access</p>
+            <p className="font-sans text-xs text-text-muted mt-1">Use <span className="font-mono text-text bg-border/50 px-1 rounded">demo@learnnova.com</span></p>
           </div>
+          <button
+            onClick={fillDemoCredentials}
+            className="px-4 py-2 bg-surface border border-border text-text font-medium text-xs rounded-lg hover:border-accent hover:text-accent transition-all shadow-sm"
+          >
+            Auto-Fill
+          </button>
         </motion.div>
 
         {/* Footer */}
@@ -195,9 +183,9 @@ export function Login() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="text-center mt-6 text-[10px] text-text-muted font-display tracking-widest uppercase"
+          className="text-center mt-8 text-xs text-text-muted font-sans"
         >
-          LearnNova v1.0 // Learning Platform
+          LearnNova &copy; {new Date().getFullYear()}
         </motion.p>
       </motion.div>
     </div>

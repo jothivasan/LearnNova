@@ -207,89 +207,89 @@ Do not include any other text after the CSV block.`;
         className="space-y-3 relative border-b border-border pb-6"
       >
         <div className="flex items-center gap-4 relative z-10">
-          <div className="w-10 h-10 bg-accent flex items-center justify-center border-2 border-dark text-dark transform -rotate-3 brutal-shadow-sm">
-            <Zap className="w-5 h-5 fill-current" />
+          <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent shadow-sm">
+            <Zap className="w-6 h-6" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-display font-bold text-text leading-none uppercase tracking-tight">
+          <h1 className="text-3xl md:text-5xl font-display font-bold text-text leading-none tracking-tight">
             Create<br/>
-            <span className="text-transparent text-stroke-accent">Learning Plan</span>
+            <span className="text-accent">Learning Plan</span>
           </h1>
         </div>
-        <p className="font-display bg-dark inline-block border border-border px-3 py-1 text-text text-[10px] uppercase tracking-widest relative z-10 ml-14">
+        <p className="font-sans font-medium bg-surface-light text-text-muted px-4 py-1.5 rounded-full text-sm inline-block relative z-10 ml-16">
           Setup your plan
         </p>
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Step 1: Configure & Generate Prompt */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.1 }}
-          className="glass-panel p-5 md:p-6 space-y-5 brutal-shadow-sm bg-surface relative"
-        >
-          <div className="flex items-center space-x-4 border-b border-border pb-3">
-            <div className="w-8 h-8 bg-dark flex items-center justify-center text-accent font-display font-bold text-sm border border-accent brutal-shadow-sm">01</div>
-            <h2 className="text-xl font-display font-bold uppercase text-text tracking-tight">Create Prompt</h2>
-          </div>
-
-          <div className="space-y-4">
-            {/* Topic */}
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-display font-bold text-accent uppercase tracking-widest border-l-2 border-accent pl-2">Target Subject</label>
-              <input
-                type="text"
-                value={topic}
-                onChange={(e) => setTopic(e.target.value)}
-                placeholder="e.g. REACT, PYTHON, MACHINE LEARNING"
-                className="w-full bg-dark border border-border p-3 text-text font-display text-sm focus:border-accent focus:outline-none transition-all uppercase placeholder:text-text-muted"
-              />
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="bg-surface border border-border rounded-2xl p-6 md:p-8 space-y-6 shadow-xl relative"
+          >
+            <div className="flex items-center space-x-4 border-b border-border pb-4">
+              <div className="w-10 h-10 rounded-full bg-surface-light flex items-center justify-center text-accent font-sans font-bold text-sm">01</div>
+              <h2 className="text-xl font-display font-semibold text-text tracking-tight">Create Prompt</h2>
             </div>
 
-            {/* Goal Type */}
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-display font-bold text-accent uppercase tracking-widest border-l-2 border-accent pl-2">Goal Type</label>
-              <select
-                value={goalType}
-                onChange={(e) => setGoalType(e.target.value)}
-                className="w-full bg-dark border border-border p-3 text-text font-display text-sm focus:border-accent focus:outline-none transition-all appearance-none uppercase cursor-pointer"
-              >
-                {GOAL_TYPES.map(g => <option key={g}>{g}</option>)}
-              </select>
-            </div>
-
-            {/* Duration & Level */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <label className="text-[10px] font-display font-bold text-accent uppercase tracking-widest border-l-2 border-accent pl-2">Duration (Days)</label>
+            <div className="space-y-5">
+              {/* Topic */}
+              <div className="space-y-2">
+                <label className="text-sm font-sans font-medium text-text-muted block">Target Subject</label>
                 <input
-                  type="number"
-                  value={duration}
-                  onChange={(e) => setDuration(e.target.value)}
-                  min="1"
-                  max="365"
-                  className="w-full bg-dark border border-border p-3 text-text font-display text-sm focus:border-accent focus:outline-none transition-all placeholder:text-text-muted"
+                  type="text"
+                  value={topic}
+                  onChange={(e) => setTopic(e.target.value)}
+                  placeholder="e.g. React, Python, Machine Learning"
+                  className="w-full bg-surface-light border border-border rounded-xl p-3.5 text-text font-sans text-sm focus:ring-2 focus:ring-accent/50 focus:border-accent focus:outline-none transition-all placeholder:text-text-muted/50"
                 />
               </div>
-              <div className="space-y-1.5">
-                <label className="text-[10px] font-display font-bold text-accent uppercase tracking-widest border-l-2 border-accent pl-2">Skill Level</label>
+
+              {/* Goal Type */}
+              <div className="space-y-2">
+                <label className="text-sm font-sans font-medium text-text-muted block">Goal Type</label>
                 <select
-                  value={level}
-                  onChange={(e) => setLevel(e.target.value)}
-                  className="w-full bg-dark border border-border p-3 text-text font-display text-sm focus:border-accent focus:outline-none transition-all appearance-none uppercase cursor-pointer"
+                  value={goalType}
+                  onChange={(e) => setGoalType(e.target.value)}
+                  className="w-full bg-surface-light border border-border rounded-xl p-3.5 text-text font-sans text-sm focus:ring-2 focus:ring-accent/50 focus:border-accent focus:outline-none transition-all appearance-none cursor-pointer"
                 >
-                  {LEVEL_OPTIONS.map(l => <option key={l}>{l}</option>)}
+                  {GOAL_TYPES.map(g => <option key={g}>{g}</option>)}
                 </select>
               </div>
-            </div>
+
+              {/* Duration & Level */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-sans font-medium text-text-muted block">Duration (Days)</label>
+                  <input
+                    type="number"
+                    value={duration}
+                    onChange={(e) => setDuration(e.target.value)}
+                    min="1"
+                    max="365"
+                    className="w-full bg-surface-light border border-border rounded-xl p-3.5 text-text font-sans text-sm focus:ring-2 focus:ring-accent/50 focus:border-accent focus:outline-none transition-all placeholder:text-text-muted/50"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-sans font-medium text-text-muted block">Skill Level</label>
+                  <select
+                    value={level}
+                    onChange={(e) => setLevel(e.target.value)}
+                    className="w-full bg-surface-light border border-border rounded-xl p-3.5 text-text font-sans text-sm focus:ring-2 focus:ring-accent/50 focus:border-accent focus:outline-none transition-all appearance-none cursor-pointer"
+                  >
+                    {LEVEL_OPTIONS.map(l => <option key={l}>{l}</option>)}
+                  </select>
+                </div>
+              </div>
 
             {/* Study Hours */}
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-display font-bold text-accent uppercase tracking-widest border-l-2 border-accent pl-2">Daily Study Hours</label>
+            <div className="space-y-2">
+              <label className="text-sm font-sans font-medium text-text-muted block">Daily Study Hours</label>
               <select
                 value={studyHours}
                 onChange={(e) => setStudyHours(e.target.value)}
-                className="w-full bg-dark border border-border p-3 text-text font-display text-sm focus:border-accent focus:outline-none transition-all appearance-none uppercase cursor-pointer"
+                className="w-full bg-surface-light border border-border rounded-xl p-3.5 text-text font-sans text-sm focus:ring-2 focus:ring-accent/50 focus:border-accent focus:outline-none transition-all appearance-none cursor-pointer"
               >
                 <option value="0.5-1">30 min – 1 hour</option>
                 <option value="1-2">1 – 2 hours</option>
@@ -302,56 +302,56 @@ Do not include any other text after the CSV block.`;
             {/* Advanced Toggle */}
             <button
               onClick={() => setShowAdvanced(!showAdvanced)}
-              className="flex items-center gap-2 text-[10px] font-display font-bold text-text-muted uppercase tracking-widest hover:text-accent transition-colors w-full justify-between border border-border px-3 py-2 bg-dark"
+              className="flex items-center gap-2 text-sm font-sans font-medium text-text-muted hover:text-text transition-colors w-full justify-between border border-border rounded-xl px-4 py-3.5 bg-surface-light"
             >
               <span>Advanced Profile Options</span>
-              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showAdvanced ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 transition-transform ${showAdvanced ? 'rotate-180' : ''}`} />
             </button>
 
             {showAdvanced && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
-                className="space-y-4 border border-border p-4 bg-dark"
+                className="space-y-4 border border-border rounded-xl p-5 bg-surface-light"
               >
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-display font-bold text-text-muted uppercase tracking-widest border-l-2 border-border pl-2">Experience</label>
+                <div className="space-y-2">
+                  <label className="text-sm font-sans font-medium text-text-muted block">Experience</label>
                   <input
                     type="text"
                     value={experience}
                     onChange={(e) => setExperience(e.target.value)}
                     placeholder="e.g. 1.6 years of React development"
-                    className="w-full bg-surface border border-border p-3 text-text font-display text-sm focus:border-accent focus:outline-none transition-all placeholder:text-text-muted"
+                    className="w-full bg-surface border border-border rounded-lg p-3 text-text font-sans text-sm focus:ring-2 focus:ring-accent/50 focus:border-accent focus:outline-none transition-all placeholder:text-text-muted/50"
                   />
                 </div>
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-display font-bold text-text-muted uppercase tracking-widest border-l-2 border-border pl-2">Weak Areas</label>
+                <div className="space-y-2">
+                  <label className="text-sm font-sans font-medium text-text-muted block">Weak Areas</label>
                   <input
                     type="text"
                     value={weakAreas}
                     onChange={(e) => setWeakAreas(e.target.value)}
                     placeholder="e.g. closures, async/await, state management"
-                    className="w-full bg-surface border border-border p-3 text-text font-display text-sm focus:border-accent focus:outline-none transition-all placeholder:text-text-muted"
+                    className="w-full bg-surface border border-border rounded-lg p-3 text-text font-sans text-sm focus:ring-2 focus:ring-accent/50 focus:border-accent focus:outline-none transition-all placeholder:text-text-muted/50"
                   />
                 </div>
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-display font-bold text-text-muted uppercase tracking-widest border-l-2 border-border pl-2">Target Roles</label>
+                <div className="space-y-2">
+                  <label className="text-sm font-sans font-medium text-text-muted block">Target Roles</label>
                   <input
                     type="text"
                     value={targetRoles}
                     onChange={(e) => setTargetRoles(e.target.value)}
                     placeholder="e.g. Mid-level frontend developer"
-                    className="w-full bg-surface border border-border p-3 text-text font-display text-sm focus:border-accent focus:outline-none transition-all placeholder:text-text-muted"
+                    className="w-full bg-surface border border-border rounded-lg p-3 text-text font-sans text-sm focus:ring-2 focus:ring-accent/50 focus:border-accent focus:outline-none transition-all placeholder:text-text-muted/50"
                   />
                 </div>
-                <label className="flex items-center gap-3 cursor-pointer group">
+                <label className="flex items-center gap-3 cursor-pointer group mt-4">
                   <input
                     type="checkbox"
                     checked={preferFreeResources}
                     onChange={(e) => setPreferFreeResources(e.target.checked)}
-                    className="w-4 h-4 accent-accent"
+                    className="w-4 h-4 rounded text-accent focus:ring-offset-surface-light focus:ring-accent transition-all"
                   />
-                  <span className="text-[10px] font-display font-bold text-text-muted uppercase tracking-widest group-hover:text-text transition-colors">
+                  <span className="text-sm font-sans font-medium text-text-muted group-hover:text-text transition-colors">
                     Free Resources Only
                   </span>
                 </label>
@@ -359,21 +359,21 @@ Do not include any other text after the CSV block.`;
             )}
 
             {/* Generated Prompt Output */}
-            <div className="pt-4 space-y-3 relative">
-              <div className="flex items-center justify-between border-b border-border pb-3">
-                <label className="text-[10px] font-display font-bold text-text uppercase tracking-widest">Generated Prompt</label>
+            <div className="pt-6 relative">
+              <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
+                <label className="text-sm font-sans font-medium text-text">Generated Prompt</label>
                 <button
                   onClick={handleCopyPrompt}
-                  className="text-[10px] font-display font-bold text-accent hover:text-dark hover:bg-accent flex items-center space-x-1.5 transition-colors bg-dark px-3 py-1.5 border border-accent"
+                  className="text-xs font-sans font-medium text-accent hover:text-white hover:bg-accent flex items-center space-x-1.5 transition-colors bg-accent/10 px-3 py-1.5 rounded-lg border border-accent/20"
                 >
-                  {promptCopied ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                  <span className="uppercase">{promptCopied ? 'Copied' : 'Copy'}</span>
+                  {promptCopied ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                  <span>{promptCopied ? 'Copied' : 'Copy Prompt'}</span>
                 </button>
               </div>
               <textarea
                 readOnly
                 value={generatedPrompt}
-                className="w-full h-48 bg-dark border border-border p-4 text-text-muted font-sans text-[11px] resize-none focus:outline-none leading-relaxed"
+                className="w-full h-48 bg-surface-light border border-border rounded-xl p-4 text-text-muted font-sans text-xs resize-none focus:outline-none focus:ring-2 focus:ring-accent/20 leading-relaxed custom-scrollbar"
               />
             </div>
           </div>
@@ -384,31 +384,31 @@ Do not include any other text after the CSV block.`;
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
-          className="glass-panel p-5 md:p-6 space-y-5 brutal-shadow-sm bg-surface relative"
+          className="bg-surface border border-border rounded-2xl p-6 md:p-8 space-y-6 shadow-xl relative"
         >
-          <div className="flex items-center space-x-4 border-b border-border pb-3">
-            <div className="w-8 h-8 bg-dark flex items-center justify-center text-accent font-display font-bold text-sm border border-accent brutal-shadow-sm">02</div>
-            <h2 className="text-xl font-display font-bold uppercase text-text tracking-tight">Upload Data</h2>
+          <div className="flex items-center space-x-4 border-b border-border pb-4">
+            <div className="w-10 h-10 rounded-full bg-surface-light flex items-center justify-center text-accent font-sans font-bold text-sm">02</div>
+            <h2 className="text-xl font-display font-semibold text-text tracking-tight">Upload Data</h2>
           </div>
 
-          <div className="space-y-5">
-            <p className="text-xs text-text-muted leading-relaxed font-sans border-l-2 border-border pl-3 italic">
+          <div className="space-y-6">
+            <p className="text-sm text-text-muted leading-relaxed font-sans bg-surface-light p-4 rounded-xl border border-border/50">
               Copy the prompt above and paste it into ChatGPT, Claude, or Gemini. Paste the resulting CSV data here to generate your plan.
             </p>
 
             <div className="space-y-2">
-              <label className="text-[10px] font-display font-bold text-text uppercase tracking-widest border-l-2 border-accent pl-2">CSV Data</label>
+              <label className="text-sm font-sans font-medium text-text block">CSV Data</label>
               <textarea
                 value={csvData}
                 onChange={(e) => setCsvData(e.target.value)}
                 placeholder={"Day,Topic,Concepts,Practice,EstimatedTime\n1,Basics,Core fundamentals,3 Problems,60"}
-                className="w-full h-44 bg-dark border border-border p-3 text-text font-sans text-xs focus:border-accent focus:outline-none transition-all leading-relaxed whitespace-pre"
+                className="w-full h-44 bg-surface-light border border-border rounded-xl p-4 text-text font-sans text-sm focus:ring-2 focus:ring-accent/50 focus:border-accent focus:outline-none transition-all leading-relaxed whitespace-pre"
               />
             </div>
 
             <div className="flex items-center justify-between">
-              <label className="cursor-pointer flex items-center space-x-2 text-[10px] font-display font-bold uppercase text-text-muted hover:text-dark hover:bg-accent transition-colors bg-dark px-4 py-2.5 border border-border hover:border-accent w-full justify-center">
-                <Upload className="w-3.5 h-3.5" />
+              <label className="cursor-pointer flex items-center space-x-2 text-sm font-sans font-medium text-text-muted hover:text-text hover:bg-surface-light transition-colors bg-surface-light px-4 py-3 border border-border rounded-xl hover:border-accent w-full justify-center shadow-sm">
+                <Upload className="w-4 h-4" />
                 <span>Upload .CSV File</span>
                 <input
                   type="file"
@@ -420,15 +420,15 @@ Do not include any other text after the CSV block.`;
             </div>
 
             {error && (
-              <div className="p-3 border border-danger bg-danger/10 flex items-start space-x-2 text-danger font-sans">
-                <AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" />
-                <span className="text-xs font-bold">{error}</span>
+              <div className="p-4 rounded-xl border border-danger/50 bg-danger/10 flex items-start space-x-3 text-danger font-sans">
+                <AlertTriangle className="w-5 h-5 shrink-0" />
+                <span className="text-sm font-medium pt-0.5">{error}</span>
               </div>
             )}
 
             <button
               onClick={parseCSV}
-              className="w-full py-3.5 bg-accent text-dark font-display font-bold text-sm tracking-widest uppercase brutal-shadow-sm hover:bg-white transition-all mt-4"
+              className="w-full py-4 bg-accent text-white font-medium text-sm rounded-xl shadow-lg shadow-accent/25 hover:bg-accent/90 focus:ring-4 focus:ring-accent/20 transition-all mt-6"
             >
               Start Learning Plan
             </button>

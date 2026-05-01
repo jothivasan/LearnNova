@@ -29,14 +29,14 @@ export function StudySession() {
   if (!todayPlan || !todayTopic) {
     return (
       <div className="flex flex-col items-center justify-center h-[60vh] space-y-6">
-        <div className="w-16 h-16 bg-dark flex items-center justify-center border border-accent brutal-shadow-sm">
+        <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center shadow-sm">
           <Zap className="w-8 h-8 text-accent animate-pulse" />
         </div>
-        <div className="text-text font-display text-xs font-bold tracking-widest uppercase border border-border bg-surface p-6 text-center max-w-lg brutal-shadow-sm">
+        <div className="text-text font-sans font-medium text-sm text-center max-w-lg bg-surface border border-border/50 rounded-xl p-6 shadow-sm">
           No learning plan detected. Initialize a plan to start a study session.
         </div>
-        <Link to="/create-plan" className="px-6 py-3 bg-accent text-dark font-display font-bold text-xs tracking-widest uppercase hover:bg-dark hover:text-accent border border-transparent hover:border-accent transition-all brutal-shadow-sm flex items-center gap-2">
-          <PlusSquare className="w-4 h-4" />
+        <Link to="/create-plan" className="px-6 py-3 bg-accent text-white font-medium text-sm rounded-xl shadow-lg shadow-accent/25 hover:bg-accent/90 transition-all flex items-center gap-2">
+          <PlusSquare className="w-5 h-5" />
           Initialize Directive
         </Link>
       </div>
@@ -86,36 +86,36 @@ export function StudySession() {
         animate={{ opacity: 1, scale: 1 }}
         className="max-w-3xl mx-auto mt-12 pb-16"
       >
-        <div className="border border-border bg-surface p-8 relative overflow-hidden text-center brutal-shadow-sm">
-          <div className="absolute top-0 left-0 w-full h-2 bg-accent"></div>
+        <div className="bg-surface rounded-2xl shadow-xl border border-border p-8 relative overflow-hidden text-center">
+          <div className="absolute top-0 left-0 w-full h-1 bg-accent"></div>
           
-          <h2 className="font-display text-5xl md:text-6xl font-bold text-text uppercase mb-4 leading-none tracking-tight mt-2">Session<br/><span className="text-transparent text-stroke-accent">Terminated</span></h2>
-          <p className="font-display font-bold text-text-muted tracking-widest text-[10px] uppercase mb-10 border-b border-border pb-6 inline-block px-8">Time logged to central database</p>
+          <h2 className="font-display text-5xl md:text-6xl font-bold text-text mb-4 leading-none tracking-tight mt-2">Session<br/><span className="text-accent">Terminated</span></h2>
+          <p className="font-sans font-medium text-text-muted text-sm mb-10 border-b border-border/50 pb-6 inline-block px-8">Time logged to central database</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="border border-border bg-dark p-6 brutal-shadow-sm relative">
-              <p className="font-display text-[10px] font-bold tracking-widest text-text-muted uppercase mb-3">Duration</p>
+            <div className="bg-surface-light rounded-xl border border-border/50 p-6 shadow-sm relative">
+              <p className="font-sans text-sm font-medium text-text-muted mb-3">Duration</p>
               <p className="font-display text-5xl font-bold text-accent leading-none">{formatTime(seconds)}</p>
             </div>
-            <div className="border border-border bg-dark p-6 brutal-shadow-sm relative">
-              <p className="font-display text-[10px] font-bold tracking-widest text-text-muted uppercase mb-3">Time_Logged</p>
-              <p className="font-display text-5xl font-bold leading-none">{minutes} <span className="text-xl text-text-muted tracking-wider">MIN</span></p>
+            <div className="bg-surface-light rounded-xl border border-border/50 p-6 shadow-sm relative">
+              <p className="font-sans text-sm font-medium text-text-muted mb-3">Time Logged</p>
+              <p className="font-display text-5xl font-bold leading-none">{minutes} <span className="text-xl text-text-muted font-sans font-medium">MIN</span></p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
               to="/"
-              className="flex items-center justify-center gap-2 px-6 py-4 border border-border bg-dark text-text font-display font-bold text-xs tracking-widest uppercase hover:border-text transition-colors brutal-shadow-sm"
+              className="flex items-center justify-center gap-2 px-6 py-3.5 bg-surface border border-border rounded-xl text-text font-medium text-sm hover:bg-surface-light transition-colors shadow-sm"
             >
-              Return_To_Dashboard
+              Return To Dashboard
             </Link>
             <Link 
               to="/analytics"
-              className="flex items-center justify-center gap-2 px-6 py-4 bg-accent text-dark border border-transparent font-display font-bold text-xs tracking-widest uppercase hover:bg-dark hover:text-accent hover:border-accent transition-colors brutal-shadow-sm"
+              className="flex items-center justify-center gap-2 px-6 py-3.5 bg-accent text-white rounded-xl shadow-lg shadow-accent/25 hover:bg-accent/90 focus:ring-4 focus:ring-accent/20 transition-all font-medium text-sm"
             >
-              View_Telemetry
-              <ArrowRight className="w-4 h-4" />
+              View Telemetry
+              <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
@@ -131,22 +131,22 @@ export function StudySession() {
     >
       <div className="border-b border-border pb-6 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <p className="font-display text-[10px] font-bold text-accent uppercase tracking-[0.2em] mb-3 bg-dark inline-block border border-accent px-3 py-1.5">
+          <p className="font-sans font-medium text-accent bg-accent/10 rounded-full inline-block px-4 py-1.5 text-sm mb-4 border border-accent/20">
             SYS.EXECUTE // ACTIVE_SESSION
           </p>
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-text uppercase leading-none tracking-tight">
-            Deep<br/><span className="text-transparent text-stroke-accent">Work</span>
+          <h1 className="font-display text-4xl md:text-6xl font-bold text-text leading-none tracking-tight">
+            Deep<br/><span className="text-accent">Work</span>
           </h1>
         </div>
-        <div className="flex flex-col items-start md:items-end gap-2 bg-dark p-3 border border-border w-full md:w-auto mt-4 md:mt-0">
-          <span className="font-display text-[10px] font-bold tracking-widest text-text-muted uppercase">DAY: <span className="text-text">{currentDay}</span></span>
-          <span className="font-display text-[10px] font-bold tracking-widest text-text-muted uppercase">TOPIC: <span className="text-accent">{todayTopic.name}</span></span>
+        <div className="flex flex-col items-start md:items-end gap-2 bg-surface-light rounded-xl p-4 border border-border w-full md:w-auto mt-4 md:mt-0 shadow-sm">
+          <span className="font-sans text-sm font-medium text-text-muted">DAY: <span className="text-text font-semibold">{currentDay}</span></span>
+          <span className="font-sans text-sm font-medium text-text-muted">TOPIC: <span className="text-accent font-semibold">{todayTopic.name}</span></span>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2 border border-border bg-surface p-10 relative overflow-hidden flex flex-col items-center justify-center min-h-80 brutal-shadow-sm group transition-all duration-300 hover:border-accent">
-          <div className="absolute inset-0 bg-dark opacity-80 z-0"></div>
+        <div className="md:col-span-2 bg-surface rounded-2xl shadow-xl border border-border p-10 relative overflow-hidden flex flex-col items-center justify-center min-h-80 group transition-all duration-300 hover:border-accent/50">
+          <div className="absolute inset-0 bg-surface-light opacity-80 z-0"></div>
           
           <div className="relative z-10 text-center space-y-10 w-full">
             <div className="inline-flex items-center justify-center">
@@ -159,7 +159,7 @@ export function StudySession() {
               {!isActive ? (
                 <button 
                   onClick={handleStart}
-                  className="flex items-center justify-center gap-3 px-10 py-5 bg-accent text-dark font-display font-bold text-xs tracking-widest uppercase hover:bg-dark hover:text-accent border border-transparent hover:border-accent transition-all brutal-shadow-sm w-full sm:w-auto"
+                  className="flex items-center justify-center gap-3 px-10 py-4 bg-accent text-white font-medium text-sm rounded-xl hover:bg-accent/90 transition-all shadow-lg shadow-accent/25 w-full sm:w-auto"
                 >
                   <Play className="w-5 h-5 fill-current" />
                   Initialize
@@ -169,25 +169,25 @@ export function StudySession() {
                   {isPaused ? (
                     <button 
                       onClick={handleResume}
-                      className="flex items-center justify-center gap-2 px-6 py-4 border border-accent text-accent font-display font-bold text-xs tracking-widest uppercase hover:bg-accent hover:text-dark transition-all brutal-shadow-sm flex-1 sm:flex-none"
+                      className="flex items-center justify-center gap-2 px-6 py-4 border border-accent/20 bg-accent/10 rounded-xl text-accent font-medium text-sm hover:bg-accent/20 transition-all flex-1 sm:flex-none"
                     >
-                      <Play className="w-4 h-4 fill-current" />
+                      <Play className="w-5 h-5 fill-current" />
                       Resume
                     </button>
                   ) : (
                     <button 
                       onClick={handlePause}
-                      className="flex items-center justify-center gap-2 px-6 py-4 border border-text text-text font-display font-bold text-xs tracking-widest uppercase hover:bg-text hover:text-dark transition-all brutal-shadow-sm flex-1 sm:flex-none"
+                      className="flex items-center justify-center gap-2 px-6 py-4 border border-border bg-surface-light rounded-xl text-text font-medium text-sm hover:bg-border/50 transition-all flex-1 sm:flex-none shadow-sm"
                     >
-                      <Pause className="w-4 h-4 fill-current" />
+                      <Pause className="w-5 h-5 fill-current" />
                       Pause
                     </button>
                   )}
                   <button 
                     onClick={handleStop}
-                    className="flex items-center justify-center gap-2 px-6 py-4 bg-danger text-white border border-transparent font-display font-bold text-xs tracking-widest uppercase hover:bg-dark hover:text-danger hover:border-danger transition-all brutal-shadow-sm flex-1 sm:flex-none"
+                    className="flex items-center justify-center gap-2 px-6 py-4 bg-danger text-white border border-transparent font-medium text-sm rounded-xl hover:bg-danger/90 transition-all shadow-lg shadow-danger/25 flex-1 sm:flex-none"
                   >
-                    <Square className="w-4 h-4 fill-current" />
+                    <Square className="w-5 h-5 fill-current" />
                     Terminate
                   </button>
                 </>
@@ -197,32 +197,32 @@ export function StudySession() {
         </div>
 
         <div className="space-y-6 flex flex-col">
-          <div className="border border-border bg-surface p-6 brutal-shadow-sm relative flex-1">
-            <h3 className="font-display text-[10px] font-bold text-accent uppercase tracking-widest mb-6 border-l-2 border-accent pl-2 flex items-center gap-2">
+          <div className="bg-surface border border-border rounded-2xl p-6 shadow-sm relative flex-1">
+            <h3 className="font-sans text-sm font-semibold text-accent mb-6 flex items-center gap-2 border-l-2 border-accent pl-2">
               <Clock className="w-4 h-4" />
-              Session_Parameters
+              Session Parameters
             </h3>
             <div className="space-y-4">
-              <div className="flex justify-between items-center border-b border-border pb-3">
-                <span className="font-display text-[10px] font-bold tracking-widest text-text-muted uppercase">Target_Time</span>
-                <span className="font-display font-bold text-lg text-accent">{todayTopic.estimatedTime} MIN</span>
+              <div className="flex justify-between items-center border-b border-border/50 pb-3">
+                <span className="font-sans text-sm font-medium text-text-muted">Target Time</span>
+                <span className="font-display font-semibold text-lg text-accent">{todayTopic.estimatedTime} MIN</span>
               </div>
-              <div className="flex justify-between items-center border-b border-border pb-3">
-                <span className="font-display text-[10px] font-bold tracking-widest text-text-muted uppercase">Current_Log</span>
-                <span className="font-display font-bold text-lg text-text">{todayPlan.studyDuration} MIN</span>
+              <div className="flex justify-between items-center border-b border-border/50 pb-3">
+                <span className="font-sans text-sm font-medium text-text-muted">Current Log</span>
+                <span className="font-display font-semibold text-lg text-text">{todayPlan.studyDuration} MIN</span>
               </div>
             </div>
           </div>
 
-          <div className="border border-border bg-surface p-6 brutal-shadow-sm relative flex-1">
-            <h3 className="font-display text-[10px] font-bold text-text uppercase tracking-widest mb-6 border-l-2 border-text pl-2">Execution_Steps</h3>
-            <div className="space-y-3">
+          <div className="bg-surface border border-border rounded-2xl p-6 shadow-sm relative flex-1">
+            <h3 className="font-sans text-sm font-semibold text-text mb-6 border-l-2 border-border pl-2">Execution Steps</h3>
+            <div className="space-y-4">
               {todayPlan.dailyTasks.map((task, i) => (
                 <div key={i} className="flex items-start gap-3 group">
-                  <div className="w-5 h-5 border border-border flex items-center justify-center shrink-0 group-hover:border-accent transition-colors bg-dark">
-                    <span className="font-display text-[8px] font-bold text-text-muted group-hover:text-accent transition-colors">{i + 1}</span>
+                  <div className="w-6 h-6 rounded-full bg-surface-light border border-border flex items-center justify-center shrink-0 group-hover:border-accent transition-colors shadow-sm">
+                    <span className="font-sans text-[10px] font-bold text-text-muted group-hover:text-accent transition-colors">{i + 1}</span>
                   </div>
-                  <span className="font-sans text-xs tracking-wide text-text/80 leading-relaxed mt-0.5">{task}</span>
+                  <span className="font-sans text-xs tracking-wide text-text/80 leading-relaxed mt-1">{task}</span>
                 </div>
               ))}
             </div>
